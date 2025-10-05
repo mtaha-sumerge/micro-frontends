@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { Auth } from "./auth/auth";
+import { Dashboard } from "./components/dashboard/dashboard";
 
 @Component({
     selector: 'app-root',
-    imports: [Auth],
+    imports: [Dashboard],
     templateUrl: './app.component.html',
     styleUrl: '../styles.scss'
 })

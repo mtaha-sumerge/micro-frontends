@@ -12,6 +12,7 @@
         "imports": {
           "navbar": "http://localhost:4201/main.js",
           "auth": "http://localhost:4202/main.js",
+          "dashboard": "http://localhost:4203/main.js",
           "single-spa": "https://cdnjs.cloudflare.com/ajax/libs/single-spa/5.5.0/system/single-spa.min.js",
           "single-spa-layout": "https://unpkg.com/single-spa-layout@1.0.0-beta.2/dist/system/single-spa-layout.min.js"
         }
@@ -25,14 +26,18 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/4.0.0/extras/amd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/4.0.0/extras/named-exports.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/4.0.0/extras/named-register.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <template id="single-spa-layout">
       <single-spa-router>
         <nav class="topnav">
           <application name="navbar"></application>
         </nav>
         <div class="main-content">
-          <route path="/auth">
+          <route default>
             <application name="auth"></application>
+          </route>
+          <route path="tasks">
+            <application name="dashboard"></application>
           </route>
         </div>
       </single-spa-router>

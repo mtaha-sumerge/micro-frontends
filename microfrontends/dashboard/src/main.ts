@@ -1,16 +1,19 @@
-import { NgZone } from '@angular/core';
+import { NgZone, importProvidersFrom } from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
-import { NavigationStart, Router } from '@angular/router';
+import { NavigationStart, provideRouter, Router } from '@angular/router';
 import { AppComponent } from './app/app.component';
 import { appConfig } from './app/app.config';
 import { singleSpaAngular, getSingleSpaExtraProviders } from 'single-spa-angular';
+import { routes } from './app/app.routes';
+import { provideHttpClient } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const lifecycles = singleSpaAngular({
   bootstrapFunction: singleSpaProps => {
     const extraProviders = getSingleSpaExtraProviders();
     const mergedConfig = {
       ...appConfig,
-      providers: [...(appConfig.providers || []), ...extraProviders],
+      providers: [...(appConfig.providers || []), importProvidersFrom(BrowserAnimationsModule), provideRouter(routes), provideHttpClient(), ...extraProviders],
     };
     return bootstrapApplication(AppComponent, mergedConfig);
   },

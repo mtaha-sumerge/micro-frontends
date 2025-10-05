@@ -1,5 +1,5 @@
 {
-  "name": "auth",
+  "name": "dashboard",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -7,8 +7,8 @@
     "build": "npm run build:single-spa",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:auth": "node dist/auth/server/server.mjs",
-    "serve:single-spa": "ng serve --disable-host-check --port 4202 --live-reload false",
+    "serve:ssr:dashboard": "node dist/dashboard/server/server.mjs",
+    "serve:single-spa": "ng serve --disable-host-check --port 4203 --live-reload false",
     "build:single-spa": "ng build --configuration production --output-hashing none"
   },
   "private": true,
@@ -18,6 +18,7 @@
     "@angular/compiler": "^20.3.3",
     "@angular/core": "^20.3.3",
     "@angular/forms": "^20.3.3",
+    "@angular/material": "^20.2.7",
     "@angular/platform-browser": "^20.3.3",
     "@angular/platform-browser-dynamic": "^20.3.3",
     "@angular/platform-server": "^20.3.3",
