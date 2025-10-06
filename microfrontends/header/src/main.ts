@@ -1,6 +1,6 @@
 import { NgZone } from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
-import { Router } from '@angular/router';
+import { NavigationStart, Router } from '@angular/router';
 import { AppComponent } from './app/app.component';
 import { appConfig } from './app/app.config';
 import { singleSpaAngular, getSingleSpaExtraProviders } from 'single-spa-angular';
@@ -14,9 +14,10 @@ const lifecycles = singleSpaAngular({
     };
     return bootstrapApplication(AppComponent, mergedConfig);
   },
-  template: '<app-root />',
+  template: '<app-header-root />',
   Router,
   NgZone,
+  NavigationStart
 });
 
 // Type assertion to handle single-spa-angular types

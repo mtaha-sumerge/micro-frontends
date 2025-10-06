@@ -14,7 +14,7 @@ const lifecycles = singleSpaAngular({
     };
     return bootstrapApplication(AppComponent, mergedConfig);
   },
-  template: '<app-root />',
+  template: '<app-auth-root />',
   Router,
   NgZone,
   NavigationStart
